@@ -5,7 +5,7 @@ transformer="$(find transformers -mindepth 2 -maxdepth 2 -type f -name "transfor
   do
     echo "$transformer => '$(xclip -o  -selection clipboard | timeout 2s "transformers/$transformer/transform" | head -n1)'"
   done
-  } | rofi -dmenu -mesg "Transforming: '$(xclip -o -selection clipboard)" "$@" | cut -d' ' -f 1)'"
+  } | rofi -dmenu -mesg "Transforming: '$(xclip -o -selection clipboard)'" "$@" | cut -d' ' -f 1)"
 test -x "transformers/$transformer/transform" || exit 1
 xclip -o  -selection clipboard | "transformers/$transformer/transform" 2>/tmp/cliptransErr | xclip -i -selection clipboard
 if [ -s /tmp/cliptransErr ] ; then
