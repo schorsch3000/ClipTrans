@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cd "$(dirname "$(realpath "$0")")"
+test -x ./node_modules/.bin/html2pug || yarn add html2pug
+./node_modules/.bin/html2pug -f -t -c -d
