@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$(realpath "$0")")" || exit 1
-transformer="$(find transformers -type f -name "transform" -executable | cut -d/ -f2 | sort | {
+transformer="$(find -mindepth 2 -maxdepth 2 transformers -type f -name "transform" -executable | cut -d/ -f2 | sort | {
   while IFS= read -r transformer
   do
     echo "$transformer => '$(xclip -o  -selection clipboard | timeout 2s "transformers/$transformer/transform" | head -n1)'"
