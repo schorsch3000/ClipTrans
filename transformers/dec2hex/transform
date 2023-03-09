@@ -1,0 +1,5 @@
+#!/usr/bin/env php
+<?php
+$input=file_get_contents("php://stdin");
+echo dechex($input);
+

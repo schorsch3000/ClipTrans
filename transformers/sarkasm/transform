@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+$i = 0;
+while (!feof(STDIN)) {
+    $c = fgetc(STDIN);
+    if(isCaseAble($c)) $i++;
+    echo $i % 2 ? strtolower($c) : strtoupper($c);
+}
+
+function isCaseAble($c){
+    return strtolower($c) !== strtoupper($c);
+}
